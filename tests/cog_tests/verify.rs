@@ -1,5 +1,4 @@
 use std::fs;
-use std::os::unix::fs::PermissionsExt;
 use std::process::Command;
 
 use crate::helpers::*;
@@ -194,6 +193,8 @@ fn verify_with_not_existing_file_fails() -> Result<()> {
 #[cfg(target_family = "unix")]
 #[sealed_test(files = ["tests/assets/commit_message.txt"])]
 fn verify_with_unreadable_file_fails() -> Result<()> {
+    use std::os::unix::fs::PermissionsExt;
+
     let file_name = "commit_message.txt";
 
     // Arrange
