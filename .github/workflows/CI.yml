@@ -77,7 +77,7 @@ jobs:
           command: nextest
           args: run
 
-      - uses: Swatinem/rust-cache@v1
+      - uses: Swatinem/rust-cache@v2
 
   lints:
     name: Lints & Format
@@ -108,4 +108,4 @@ jobs:
           command: clippy
           args: -- -D warnings
 
-      - uses: Swatinem/rust-cache@v1
+      - uses: Swatinem/rust-cache@v2
