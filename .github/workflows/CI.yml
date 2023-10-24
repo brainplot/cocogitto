@@ -8,6 +8,10 @@ on:
   pull_request:
     branches:
       - main
+
+env:
+  CARGO_TERM_COLOR: always
+
 jobs:
   test:
     name: Tests for platform  ${{ matrix.os }}/${{ matrix.target }}
@@ -43,7 +47,19 @@ jobs:
 #          git-user-email: 'github-actions@github.com'
 
       - name: Install stable toolchain
+        uses: taiki-e/install-action@nextest
+        if: ${{matrix.target}} != "x86_64-unknown-linux-musl"
+
+      - name: Test with latest nextest release
+        if: ${{matrix.target}} != "x86_64-unknown-linux-musl"
+        uses: actions-rs/cargo@v1
+        with:
+          command: nextest
+          args: run
+
+      - name: Install stable toolchain
         uses: actions-rs/toolchain@v1
+        if: ${{matrix.target}} == "x86_64-unknown-linux-musl"
         with:
           profile: minimal
           toolchain: stable
@@ -51,15 +67,17 @@ jobs:
           components: llvm-tools-preview
 
       - name: Install cargo-llvm-cov
+        if: ${{matrix.target}} == "x86_64-unknown-linux-musl"
         uses: taiki-e/install-action@cargo-llvm-cov
 
       - uses: actions-rs/cargo@v1
+        if: ${{matrix.target}} == "x86_64-unknown-linux-musl"
         with:
           command: llvm-cov
           args: --all-features --workspace --lcov --output-path lcov.info
 
       - name: Upload coverage to Codecov
-        if: ${{matrix.os}} == "ubuntu-latest"
+        if: ${{matrix.target}} == "x86_64-unknown-linux-musl"
         uses: codecov/codecov-action@v3
         with:
           files: lcov.info
