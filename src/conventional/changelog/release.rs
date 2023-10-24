@@ -140,6 +140,7 @@ mod test {
 
         // Act
         let changelog = renderer.render(release)?;
+        let changelog = changelog.replace("\r", "");
 
         // Assert
         assert_eq!(
@@ -169,6 +170,7 @@ mod test {
 
         // Act
         let changelog = renderer.render(release)?;
+        let changelog = changelog.replace("\r", "");
 
         // Assert
         assert_eq!(
@@ -202,6 +204,7 @@ mod test {
 
         // Act
         let changelog = renderer.render(release)?;
+        let changelog = changelog.replace("\r", "");
 
         // Assert
         assert_eq!(
@@ -233,6 +236,7 @@ mod test {
 
         // Act
         let changelog = renderer.render(release)?;
+        let changelog = changelog.replace("\r", "");
 
         // Assert
         assert_eq!(
@@ -268,6 +272,7 @@ mod test {
 
         // Act
         let changelog = renderer.render(release)?;
+        let changelog = changelog.replace("\r", "");
 
         // Assert
         assert_eq!(
@@ -303,6 +308,7 @@ mod test {
 
         // Act
         let changelog = renderer.render(release)?;
+        let changelog = changelog.replace("\r", "");
 
         // Assert
         assert_eq!(
@@ -338,6 +344,7 @@ mod test {
 
         // Act
         let changelog = renderer.render(release)?;
+        let changelog = changelog.replace("\r", "");
 
         // Assert
         assert_eq!(
@@ -377,6 +384,7 @@ mod test {
 
         // Act
         let changelog = renderer.render(release)?;
+        let changelog = changelog.replace("\r", "");
 
         // Assert
         assert_eq!(
@@ -412,6 +420,7 @@ mod test {
 
         // Act
         let changelog = renderer.render(release)?;
+        let changelog = changelog.replace("\r", "");
 
         // Assert
         assert_eq!(
@@ -443,6 +452,7 @@ mod test {
 
         // Act
         let changelog = renderer.render(release)?;
+        let changelog = changelog.replace("\r", "");
 
         // Assert
         assert_eq!(
@@ -478,6 +488,7 @@ mod test {
 
         // Act
         let changelog = renderer.render(release)?;
+        let changelog = changelog.replace("\r", "");
 
         // Assert
         assert_eq!(
@@ -513,6 +524,7 @@ mod test {
 
         // Act
         let changelog = renderer.render(release)?;
+        let changelog = changelog.replace("\r", "");
 
         // Assert
         assert_eq!(
